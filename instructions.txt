@@ -1,0 +1,12 @@
+for backend:
+    npm i bcryptjs colors dotenv express express-async-handler jsonwebtoken mongoose 
+
+for frontend:
+    nmp i
+
+rename .envexample to .env
+    add mongdb url to .env
+
+ar root folder:
+    npm run dot
+
