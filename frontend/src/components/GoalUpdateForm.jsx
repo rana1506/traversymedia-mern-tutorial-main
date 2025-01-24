@@ -4,6 +4,7 @@ import { updateGoal } from '../features/goals/goalSlice'
 
 function GoalUpdateForm({goal}) {
   const [text, setText] = useState('')
+  const [category, setCategory] = useState('')
   const [goalId, setGoalId] = useState('')
   let goalData={}
   const dispatch = useDispatch()
@@ -11,15 +12,15 @@ function GoalUpdateForm({goal}) {
   const onSubmit = (e) => {
     e.preventDefault()
     
-    goalData={text:text}
-    //console.log(goalData)
+    goalData={text:text, category:category}
     dispatch(updateGoal( {goalId, goalData} ))
     setText('')
   }
 
   useEffect(()=>{
     setGoalId(goal._id)
-    setText(goal.text)  
+    setText(goal.text)
+    setCategory(goal.category)  
   }, [])
 
   return (
@@ -33,6 +34,16 @@ function GoalUpdateForm({goal}) {
             id='text'
             value={text}
             onChange={(e) => setText(e.target.value)}
+          />
+        </div>
+        <div className='form-group'>
+          <label htmlFor='text'>Update Category</label>
+          <input
+            type='text'
+            name='category'
+            id='category'
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
           />
         </div>
         <div className='form-group'>

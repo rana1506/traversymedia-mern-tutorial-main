@@ -20,9 +20,10 @@ const setGoal = asyncHandler(async (req, res) => {
     res.status(400)
     throw new Error('Please add a text field')
   }
-
+  
   const goal = await Goal.create({
     text: req.body.text,
+    category: req.body.category,
     user: req.user.id,
   })
 
@@ -33,7 +34,6 @@ const setGoal = asyncHandler(async (req, res) => {
 // @route   PUT /api/goals/:id
 // @access  Private
 const updateGoal = asyncHandler(async (req, res) => {
-  console.log('i m in update api')
   const goal = await Goal.findById(req.params.id)
 
   if (!goal) {

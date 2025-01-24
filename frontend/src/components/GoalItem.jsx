@@ -25,6 +25,7 @@ function GoalItem({ goal }) {
       <div className='goal'>
         <div>{new Date(goal.createdAt).toLocaleString('en-US')}</div>
         <h2 onClick={itemClicked}>{goal.text}</h2>
+        <h2 >{goal.category}</h2>
         <button onClick={() => dispatch(deleteGoal(goal._id))} className='close'>
           X
         </button>

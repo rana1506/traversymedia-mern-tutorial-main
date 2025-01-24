@@ -8,8 +8,7 @@ const createGoal = async (goalData, token) => {
     headers: {
       Authorization: `Bearer ${token}`,
     },
-  }
-
+  }  
   const response = await axios.post(API_URL, goalData, config)
 
   return response.data
@@ -48,7 +47,6 @@ const updateGoal = async (goal, token) => {
       Authorization: `Bearer ${token}`,
     },
   }
-console.log(goal)
   const response = await axios.put(API_URL+ goal.goalId, goal.goalData, config)
 
   return response.data

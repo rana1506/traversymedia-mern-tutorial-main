@@ -71,7 +71,6 @@ export const updateGoal = createAsyncThunk(
   'goals/update',
   async (goal, thunkAPI) => {
     try {
-      console.log({goal})
       const token = thunkAPI.getState().auth.user.token
       return await goalService.updateGoal(goal, token)
     } catch (error) {

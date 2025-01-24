@@ -4,13 +4,14 @@ import { createGoal } from '../features/goals/goalSlice'
 
 function GoalForm() {
   const [text, setText] = useState('')
+  const [category, setCategory] = useState('')
 
   const dispatch = useDispatch()
 
   const onSubmit = (e) => {
     e.preventDefault()
-
-    dispatch(createGoal({ text }))
+    
+    dispatch(createGoal({ text:text, category:category }))
     setText('')
   }
 
@@ -25,6 +26,16 @@ function GoalForm() {
             id='text'
             value={text}
             onChange={(e) => setText(e.target.value)}
+          />
+        </div>
+        <div className='form-group'>
+          <label htmlFor='text'>Category of GoalGoal</label>
+          <input
+            type='text'
+            name='category'
+            id='category'
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
           />
         </div>
         <div className='form-group'>
